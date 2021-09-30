@@ -1,0 +1,14 @@
+    layers.Conv2D(32, kernel_size=(6,6), input_shape=(28,28, 1), activation='relu'), # (X,Y,Pixel(colour=3,greyscale=1)) can also take padding
+    layers.MaxPooling2D(pool_size=(6,6)), #you can pass stride.
+    layers.Conv2D(64, kernel_size=(4,4), activation='relu'),
+    layers.MaxPooling2D(pool_size=(2,2)),
+    layers.Flatten(),
+    layers.Dropout(.01),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(32, activation='relu'),
+    layers.Dropout(.01),
+    layers.Dense(10, activation='softmax')
+
+1875/1875 [==============================] - 9s 5ms/step - loss: 0.1496 - accuracy: 0.9417
+313/313 [==============================] - 1s 2ms/step - loss: 0.3258 - accuracy: 0.9028
+Trained model, accuracy: 90.28%
