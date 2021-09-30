@@ -6,7 +6,7 @@ import numpy as np
 global mouse_x, mouse_y
 global mouse_down
 global ai_model 
-ai_model = keras.models.load_model('F:\\GitHub\\DrawingClothes\\MODELS\\fash_id_c64-p-c128-p-out-dr5_100e.model')
+ai_model = keras.models.load_model('MODELS\\latest_model')
 
 def get_label(one_hot_encoding):
     labels = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']

@@ -40,6 +40,9 @@ https://github.com/zalandoresearch/fashion-mnist
 
 You can find the generater for the model in the file modelgenerator.py and you find the settings used there. I also include a acc.txt within the folder of the model used with the Network + Results from the testing dataset. 
 
-The model always used 2 Convolutions followed by Max Pooling and then a hidden layer and has been trained in around 20 epochs. 
+The model always used 2 Convolutions followed by Max Pooling and then a hidden layer and has been trained in around 20-35 epochs. 
 
 ### Model  
+
+The model that I found to have the best accuracy (90.28%) against the test can be found in Models/simple_best_90_28/, read open acc.txt to see the network used.
+The program will use the model in latest_model, by default. This is also the directory where a model will be created if modelgenerator.py is run. **Be aware, the models are replaced if not renamed.**

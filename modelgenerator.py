@@ -18,13 +18,13 @@ def get_label(one_hot_encoding):
 
 # Definition of the model
 cnn_model = Sequential([
-    layers.Conv2D(64, kernel_size=(6,6), input_shape=(28,28, 1), activation='relu'), # (X,Y,Pixel(colour=3,greyscale=1)) can also take padding
+    layers.Conv2D(128, kernel_size=(6,6), input_shape=(28,28, 1), activation='relu'), # (X,Y,Pixel(colour=3,greyscale=1)) can also take padding
     layers.MaxPooling2D(pool_size=(3,3)), #you can pass stride.
-    layers.Conv2D(128, kernel_size=(3,3), activation='relu'),
+    layers.Conv2D(64, kernel_size=(3,3), activation='relu'),
     layers.MaxPooling2D(pool_size=(2,2)),
     layers.Flatten(),
     layers.Dropout(.01),
-    layers.Dense(750, activation='relu'),
+    layers.Dense(500, activation='relu'),
     layers.Dense(250, activation='relu'),
     layers.Dropout(.01),
     layers.Dense(10, activation='softmax')
@@ -37,8 +37,8 @@ cnn_model.compile(optimizer='adam',
 pre_loss, pre_acc = cnn_model.evaluate(x_test.reshape([-1, 28, 28, 1]), y_test)
 print("Untrained model, accuracy: {:5.2f}%".format(100 * pre_acc))
 print(pre_loss)
-cnn_model.fit(x_train.reshape([-1, 28, 28, 1]), y_train, epochs=35)
+cnn_model.fit(x_train.reshape([-1, 28, 28, 1]), y_train, epochs=30)
 post_loss, post_acc = cnn_model.evaluate(x_test.reshape([-1, 28, 28, 1]), y_test)
 print("Trained model, accuracy: {:5.2f}%".format(100 * post_acc))
 print(post_loss)
-cnn_model.save("MODELS\\c64_c128_h750_h250_e25")
+cnn_model.save("MODELS\\latest_model")
